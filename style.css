@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.game-board {
+    width: 80%; /* Largura da área do jogo */
+    height: 500px; /* Altura da área do jogo */
+    border: 1px solid #333; /* Borda da área do jogo */
+    margin: 0 auto; /* Centraliza a área do jogo horizontalmente */
+    position: relative; /* Define a posição relativa para os elementos filhos */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites da div */
+    background-image: url('MARIO2.gif'); /* Define a imagem de fundo */
+    background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o espaço da div */
+    background-position: center; /* Centraliza a imagem horizontal e verticalmente */
+    background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+}
+
+.pipe {
+    position: absolute; /* Define a posição absoluta para o cano */
+    bottom: 0; /* Alinha o cano na parte inferior da div .game-board */
+    width: 100px; /* Largura do cano */
+    animation: pipe-animation 2s infinite linear; /* Aplica uma animação de movimento ao cano */
+}
+
+.mario {
+    width: 150px; /* Largura do personagem Mario */
+    position: absolute; /* Define a posição absoluta para o personagem Mario */
+    bottom: 0; /* Alinha o personagem Mario na parte inferior da div .game-board */
+}
+
+.pulo {
+    animation: pulo 500ms ease-out; /* Aplica uma animação de pulo ao personagem Mario */
+}
+
+/* Define a animação de movimento para o cano */
+@keyframes pipe-animation {
+    from {
+        right: -80px; /* Define a posição inicial do cano fora da área visível */
+    }
+    to {
+        right: 100%; /* Move o cano para a direita até a borda direita da div .game-board */
+    }  
+}
+
+/* Define a animação de pulo para o personagem Mario */
+@keyframes pulo {
+    0% {
+        bottom: 0; /* Posição inicial do pulo (no chão) */
+    }
+    40% {
+        bottom: 150px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    50% {
+        bottom: 300px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    60% {
+        bottom: 150px; /* Posição intermediária do pulo (altura máxima) */
+    }
+    100% {
+        bottom: 0; /* Posição final do pulo (de volta ao chão) */
+    }
+}
